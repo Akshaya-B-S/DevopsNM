@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Driver GPS</title>
+</head>
+
+<body>
+
+<h2>Bus GPS Sender</h2>
+
+<button onclick="sendLocation()">Send Location</button>
+
+<script>
+
+function sendLocation(){
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+let lat = pos.coords.latitude;
+let lon = pos.coords.longitude;
+
+fetch("updateLocation?lat="+lat+"&lon="+lon);
+
+alert("Location sent");
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
